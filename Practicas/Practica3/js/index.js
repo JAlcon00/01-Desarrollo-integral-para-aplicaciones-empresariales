@@ -1,0 +1,42 @@
+var normalx = 'Hola mundo';
+normalx = 10;
+normalx = true;
+console.log(normalx);
+var usuario = 'Hola nuevo mundo ';
+console.log(usuario);
+var value;
+value = true;
+value = 'hola undo';
+value = [];
+value = {};
+value = Math.random;
+value = undefined;
+value = null;
+console.log(value);
+var miValor;
+console.log("tipo unkwon:", miValor);
+var value1 = miValor;
+var value2 = miValor;
+//let value3: boolean = miValor; esto marca un error
+//let value4: number = miValor; esto marca un error
+var edad = 20;
+console.log('edad:', edad);
+var sueldo = 1.201;
+var total = Number('14785'); //castear un string a number
+console.log('Total:', total);
+var personaje = "El chavo del 8";
+var otroPersonaje = 'El chapulin colorado';
+var otroPersonajeMas = "El chompiras y ".concat(personaje);
+console.log('Personaje:', personaje);
+console.log('Otro personaje:', otroPersonaje);
+var heroes = ['Batman', 'Superman', 'Robin'];
+var heroe = "Deadpools House";
+console.log(heroe);
+console.log(heroe.toUpperCase());
+var vengador;
+vengador = 'Dr. Strange';
+console.log(vengador.charAt(4));
+vengador = 150.55;
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));
+console.log(vengador.toFixed(1));

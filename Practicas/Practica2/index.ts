@@ -7,16 +7,22 @@ booleano = false;
 booleano = !booleano;
 var encendido = true;
 console.log('Encendido es: ', encendido); // true
-console.log('Encendido es: ', { encendido: encendido }); // true
+console.log('Encendido es: ', {encendido}); // true
+
+
 encendido = true && false;
 encendido = true && true;
 encendido = false && true;
 encendido = false && false;
 console.log('Resultado es: ', encendido); // false
-var normal = 'Hola';
+
+let normal:any = 'Hola';
 normal = 10;
 normal = true;
 normal = {};
 normal = [];
-normal = function () { };
-console.log('normal: ', normal);
+normal = function() {};
+
+console.log('normal: ',normal);
+
+
