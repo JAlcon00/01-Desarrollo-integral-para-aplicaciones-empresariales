@@ -4,11 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.618em; /* Proporción áurea */
+            margin: 1.618em 0; /* Proporción áurea */
+            color: #333;
+        }
+
+        div {
+            width: 100%;
+            max-width: 800px;
+            margin: 1.618em 0; /* Proporción áurea */
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 1em;
+            margin: 0.618em 0; /* Proporción áurea */
+            color: #666;
+        }
+
+        figure {
+            margin: 1.618em 0; /* Proporción áurea */
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        figcaption {
+            font-size: 1em;
+            margin-top: 0.618em; /* Proporción áurea */
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.618em; /* Proporción áurea */
+            }
+
+            div {
+                padding: 0.618em; /* Proporción áurea */
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            figcaption {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <H1>P R A C T I C A 3 :V</H1>
-    
+
+    <div>
+        <p id="numeros"></p>
+        <p id="numeros2"></p>
+    </div>
+
+    <div>
+        <p id="miArray"></p>
+        <p id="miArray2"></p>
+        <p id="miArray3"></p>
+        <p id="miArray4"></p>
+    </div>
+
+    <div>
+        <figure>
+            <img src="Carlos.jpeg" alt="Foto de Carlos">
+            <figcaption>Carlos</figcaption>
+        </figure>
+        <figure>
+            <img src="juan.webp" alt="Foto de Juan">
+            <figcaption>Juan</figcaption>
+        </figure>
+    </div>
+
     <script src="js/index.js"></script>
 </body>
 </html>
