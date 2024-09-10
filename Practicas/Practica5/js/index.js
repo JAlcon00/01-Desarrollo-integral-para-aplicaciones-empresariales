@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var miVariable = 'hola mundo';
 console.log(miVariable);
 var person1 = {
@@ -222,18 +237,59 @@ console.log(producto2.mostrarProducto());
 console.log(usuario1.mostrarUsuario());
 console.log(metodoDePago1.mostrarMetodoDePago());
 console.log(orden1.mostrarOrden());
+/*
 // Función para agregar texto al contenedor HTML
-function agregarTextoAlContenedor(texto) {
-    var outputDiv = document.getElementById('output');
+function agregarTextoAlContenedor(texto: string): void {
+    const outputDiv = document.getElementById('output');
     if (outputDiv) {
-        var p = document.createElement('p');
+        const p = document.createElement('p');
         p.textContent = texto;
         outputDiv.appendChild(p);
     }
 }
+
 // Imprimir resultados en el contenedor HTML
 agregarTextoAlContenedor(producto1.mostrarProducto());
 agregarTextoAlContenedor(producto2.mostrarProducto());
+
 agregarTextoAlContenedor(usuario1.mostrarUsuario());
+
 agregarTextoAlContenedor(metodoDePago1.mostrarMetodoDePago());
+
 agregarTextoAlContenedor(orden1.mostrarOrden());
+*/
+//Herencia 
+var Animal = /** @class */ (function () {
+    function Animal(nombre) {
+        this.nombre = nombre;
+    }
+    Animal.prototype.mover = function (distancia) {
+        if (distancia === void 0) { distancia = 0; }
+        console.log("".concat(this.nombre, " se movio ").concat(distancia, "mts."));
+    };
+    Animal.prototype.hacerSonido = function (sonido) {
+        if (sonido === void 0) { sonido = 'Sin sonido'; }
+        console.log("".concat(this.nombre, " hace ").concat(sonido));
+    };
+    return Animal;
+}());
+var miAnimal = new Animal('Perro');
+miAnimal.mover(5);
+miAnimal.hacerSonido("Guau Guau");
+var Perro = /** @class */ (function (_super) {
+    __extends(Perro, _super);
+    function Perro(nombre) {
+        return _super.call(this, nombre) || this;
+    }
+    Perro.prototype.hacerSonido = function () {
+        console.log("".concat(this.nombre, " hace Tu que vas a saber de fornite pinche chamaco pendejo"));
+    };
+    Perro.prototype.mover = function (distancia) {
+        console.log("".concat(this.nombre, " se movio ").concat(distancia, "mts."));
+        _super.prototype.mover.call(this, distancia);
+    };
+    return Perro;
+}(Animal));
+var miPerro = new Perro('Charls');
+miPerro.mover(10);
+miPerro.hacerSonido();

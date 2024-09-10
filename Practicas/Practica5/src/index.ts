@@ -317,6 +317,7 @@ console.log(metodoDePago1.mostrarMetodoDePago());
 console.log(orden1.mostrarOrden());
 
 
+/*
 // Función para agregar texto al contenedor HTML
 function agregarTextoAlContenedor(texto: string): void {
     const outputDiv = document.getElementById('output');
@@ -336,3 +337,45 @@ agregarTextoAlContenedor(usuario1.mostrarUsuario());
 agregarTextoAlContenedor(metodoDePago1.mostrarMetodoDePago());
 
 agregarTextoAlContenedor(orden1.mostrarOrden());
+*/
+
+//Herencia 
+
+class Animal {
+    nombre: string;
+    constructor(nombre: string){
+        this.nombre = nombre;
+    }
+    mover(distancia: number = 0){
+        console.log(`${this.nombre} se movio ${distancia}mts.`);
+    }
+
+    hacerSonido(sonido: string = 'Sin sonido'): void {
+        console.log(`${this.nombre} hace ${sonido}`);
+    }
+}
+
+let miAnimal = new Animal('Perro');
+miAnimal.mover(5);
+miAnimal.hacerSonido("Guau Guau");
+  
+class Perro extends Animal {
+    constructor(nombre: string){
+        super(nombre);
+    }
+    hacerSonido(){
+        console.log(`${this.nombre} hace Guau Guau`);
+    }
+    mover(distancia?: number): void {
+        console.log(`${this.nombre} se movio ${distancia}mts.`);
+        super.mover(distancia);
+    }
+}
+
+const miPerro = new Perro('Scooby Doo');
+miPerro.mover(10);
+miPerro.hacerSonido();
+
+const miSerpiente = new Animal('Serpiente');
+miSerpiente.mover(5);
+miSerpiente.hacerSonido('Sssssss');
