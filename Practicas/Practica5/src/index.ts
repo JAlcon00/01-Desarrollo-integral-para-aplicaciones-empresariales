@@ -316,3 +316,23 @@ console.log(metodoDePago1.mostrarMetodoDePago());
 
 console.log(orden1.mostrarOrden());
 
+
+// Función para agregar texto al contenedor HTML
+function agregarTextoAlContenedor(texto: string): void {
+    const outputDiv = document.getElementById('output');
+    if (outputDiv) {
+        const p = document.createElement('p');
+        p.textContent = texto;
+        outputDiv.appendChild(p);
+    }
+}
+
+// Imprimir resultados en el contenedor HTML
+agregarTextoAlContenedor(producto1.mostrarProducto());
+agregarTextoAlContenedor(producto2.mostrarProducto());
+
+agregarTextoAlContenedor(usuario1.mostrarUsuario());
+
+agregarTextoAlContenedor(metodoDePago1.mostrarMetodoDePago());
+
+agregarTextoAlContenedor(orden1.mostrarOrden());
