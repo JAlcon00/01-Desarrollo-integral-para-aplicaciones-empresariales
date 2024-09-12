@@ -282,7 +282,7 @@ var Perro = /** @class */ (function (_super) {
         return _super.call(this, nombre) || this;
     }
     Perro.prototype.hacerSonido = function () {
-        console.log("".concat(this.nombre, " hace Tu que vas a saber de fornite pinche chamaco pendejo"));
+        console.log("".concat(this.nombre, " hace Guau Guau"));
     };
     Perro.prototype.mover = function (distancia) {
         console.log("".concat(this.nombre, " se movio ").concat(distancia, "mts."));
@@ -290,6 +290,9 @@ var Perro = /** @class */ (function (_super) {
     };
     return Perro;
 }(Animal));
-var miPerro = new Perro('Charls');
+var miPerro = new Perro('Scooby Doo');
 miPerro.mover(10);
 miPerro.hacerSonido();
+var miSerpiente = new Animal('Serpiente');
+miSerpiente.mover(5);
+miSerpiente.hacerSonido('Sssssss');
