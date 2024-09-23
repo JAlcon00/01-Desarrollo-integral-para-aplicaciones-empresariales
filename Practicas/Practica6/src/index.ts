@@ -95,6 +95,7 @@ class OnlineStore {
         console.log(`Estado de la Orden: ${this.orderStatus}`);
         console.log(`Método de Pago: ${this.paymentMethod}`);
     }
+    
 }
 
 // Ejemplo de uso
