@@ -41,44 +41,35 @@ console.log(volumen); // 5
 var volumen2 = Volumen.min;
 console.log(volumen2);
 // Definir las categorías de productos
-var ProductCategory;
-(function (ProductCategory) {
-    ProductCategory["Electronics"] = "Electr\u00F3nica";
-    ProductCategory["Clothing"] = "Ropa";
-    ProductCategory["HomeAppliances"] = "Electrodom\u00E9sticos";
-    ProductCategory["Books"] = "Libros";
-    ProductCategory["Toys"] = "Juguetes";
-})(ProductCategory || (ProductCategory = {}));
+var ProductCategory = {
+    Electronics: "Electrónica",
+    Clothing: "Ropa",
+    HomeAppliances: "Electrodomésticos",
+    Books: "Libros",
+    Toys: "Juguetes"
+};
 // Definir los estados de una orden
-var OrderStatus;
-(function (OrderStatus) {
-    OrderStatus["Pending"] = "Pendiente";
-    OrderStatus["Shipped"] = "Enviado";
-    OrderStatus["Delivered"] = "Entregado";
-    OrderStatus["Cancelled"] = "Cancelado";
-})(OrderStatus || (OrderStatus = {}));
+var OrderStatus = {
+    Pending: "Pendiente",
+    Shipped: "Enviado",
+    Delivered: "Entregado",
+    Cancelled: "Cancelado"
+};
 // Definir los métodos de pago
-var PaymentMethod;
-(function (PaymentMethod) {
-    PaymentMethod["CreditCard"] = "Tarjeta de Cr\u00E9dito";
-    PaymentMethod["PayPal"] = "PayPal";
-    PaymentMethod["BankTransfer"] = "Transferencia Bancaria";
-    PaymentMethod["CashOnDelivery"] = "Pago Contra Entrega";
-})(PaymentMethod || (PaymentMethod = {}));
-// Clase principal para la tienda en línea
-var OnlineStore = /** @class */ (function () {
-    function OnlineStore(productCategory, orderStatus, paymentMethod) {
-        this.productCategory = productCategory;
-        this.orderStatus = orderStatus;
-        this.paymentMethod = paymentMethod;
-    }
-    OnlineStore.prototype.displayOrderDetails = function () {
-        console.log("Categor\u00EDa del Producto: ".concat(this.productCategory));
-        console.log("Estado de la Orden: ".concat(this.orderStatus));
-        console.log("M\u00E9todo de Pago: ".concat(this.paymentMethod));
-    };
-    return OnlineStore;
-}());
-// Ejemplo de uso
-var order = new OnlineStore(ProductCategory.Electronics, OrderStatus.Pending, PaymentMethod.CreditCard);
-order.displayOrderDetails();
+var PaymentMethod = {
+    CreditCard: "Tarjeta de Crédito",
+    PayPal: "PayPal",
+    BankTransfer: "Transferencia Bancaria",
+    CashOnDelivery: "Pago Contra Entrega"
+};
+// Función para imprimir los enums en el HTML
+function printEnums() {
+    var productCategoryDiv = document.getElementById('product-category');
+    var orderStatusDiv = document.getElementById('order-status');
+    var paymentMethodDiv = document.getElementById('payment-method');
+    productCategoryDiv.innerHTML = "<h3>Categor\u00EDas de Productos</h3><ul>".concat(Object.values(ProductCategory).map(function (value) { return "<li>".concat(value, "</li>"); }).join(''), "</ul>");
+    orderStatusDiv.innerHTML = "<h3>Estados de Orden</h3><ul>".concat(Object.values(OrderStatus).map(function (value) { return "<li>".concat(value, "</li>"); }).join(''), "</ul>");
+    paymentMethodDiv.innerHTML = "<h3>M\u00E9todos de Pago</h3><ul>".concat(Object.values(PaymentMethod).map(function (value) { return "<li>".concat(value, "</li>"); }).join(''), "</ul>");
+}
+// Llamar a la función cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', printEnums);
