@@ -38,14 +38,38 @@
             return ul;
         };
 
-        fetch('/archivos')
-            .then(response => response.json())
-            .then(data => {
-                const listaArchivos = document.getElementById('lista-archivos');
-                const lista = crearListaArchivos(data);
-                listaArchivos.appendChild(lista);
-            })
-            .catch(error => console.error('Error:', error));
+        // Datos de ejemplo para simular la respuesta del servidor
+        const datosEjemplo = [
+            {
+                nombre: 'carpeta1',
+                esDirectorio: true,
+                contenido: [
+                    {
+                        nombre: 'archivo1.txt',
+                        esDirectorio: false
+                    },
+                    {
+                        nombre: 'subcarpeta1',
+                        esDirectorio: true,
+                        contenido: [
+                            {
+                                nombre: 'archivo2.txt',
+                                esDirectorio: false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                nombre: 'archivo3.txt',
+                esDirectorio: false
+            }
+        ];
+
+        // Usar los datos de ejemplo en lugar de hacer una solicitud fetch
+        const listaArchivos = document.getElementById('lista-archivos');
+        const lista = crearListaArchivos(datosEjemplo);
+        listaArchivos.appendChild(lista);
     </script>
 </body>
 </html>
