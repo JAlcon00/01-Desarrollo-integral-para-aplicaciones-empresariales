@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivos y Carpetas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <style>
+        .folder-content {
+            display: none;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Archivos y Carpetas</h1>
+    <ul id="lista-archivos"></ul>
+
+    <script>
+        const crearListaArchivos = (archivos) => {
+            const ul = document.createElement('ul');
+            archivos.forEach(item => {
+                const li = document.createElement('li');
+                const icon = item.esDirectorio ? 'bi-folder' : 'bi-file-earmark';
+                li.innerHTML = `<i class="bi ${icon}"></i> ${item.nombre}`;
+                if (item.esDirectorio) {
+                    li.classList.add('folder');
+                    const contenido = crearListaArchivos(item.contenido);
+                    contenido.classList.add('folder-content');
+                    li.appendChild(contenido);
+                    li.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        contenido.style.display = contenido.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+                ul.appendChild(li);
+            });
+            return ul;
+        };
+
+        fetch('/archivos')
+            .then(response => response.json())
+            .then(data => {
+                const listaArchivos = document.getElementById('lista-archivos');
+                const lista = crearListaArchivos(data);
+                listaArchivos.appendChild(lista);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
