@@ -1,0 +1,36 @@
+<%- include ('./encabezado.ejs')%>
+
+<body>
+    <div>
+        <% try { %>
+            <% if (typeof titulo !== 'undefined' && titulo) { %>
+                <h1><%= titulo %></h1>
+            <% } else { %>
+                <h1>Título no disponible</h1>
+            <% } %>
+        <% } catch (error) { %>
+            <h1>Error al cargar el título</h1>
+        <% } %>
+    </div>
+
+    <% try { %>
+        <% if (Array.isArray(blogs) && blogs.length > 0) { %>
+            <h2>Lista de blogs</h2>
+            <% blogs.forEach(blog => { %>
+                <div>
+                    <h2><%= blog.titulo %></h2>
+                    <p><%= blog.contenido %></p>
+                    <p><%= blog.fecha %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No hay blogs</p>
+        <% } %>
+    <% } catch (error) { %>
+        <p>Error al cargar los blogs</p>
+    <% } %>
+
+    
+</body>
+
+</html>
