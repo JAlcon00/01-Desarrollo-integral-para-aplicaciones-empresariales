@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
+const user = process.env.user;
 const password = process.env.password;
 const cluster = process.env.cluster;
 const dbName = process.env.dbname;
@@ -28,3 +29,5 @@ async function run() {
       await client.close();
     }
 }
+
+run().catch(console.dir);
