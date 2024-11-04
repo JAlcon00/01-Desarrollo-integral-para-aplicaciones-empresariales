@@ -8,7 +8,7 @@ const cluster = process.env.cluster;
 const dbName = process.env.dbname;
 const collectionName = process.env.collection;
 const url = `mongodb+srv://${user}:${password}@${cluster}.uoxe6ek.mongodb.net/${dbName}?retryWrites=true&w=majority`;
-
+//Comentarios
 if (!url || !dbName || !collectionName) {
   console.error('Please make sure that .env file is correctly configured.');
   process.exit(1);
