@@ -1,23 +1,26 @@
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-/*
-const user = 'JoeAlcon00';
-const password = 'VBPmelfdcTm2UlG6';
-const cluster = 'cluster0';
-const dbname = 'PROJECT 0';
-const collection = 'blog';
-const url = `mongodb+srv://${user}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`;
-*/
+// Construir la URL de conexión
+const user = process.env.user;
+const password = process.env.password;
+const cluster = process.env.cluster;
+const dbName = process.env.dbname;
+const collectionName = process.env.collection;
+const url = `mongodb+srv://${user}:${password}@${cluster}.uoxe6ek.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
+if (!url || !dbName || !collectionName) {
+  console.error('Please make sure that .env file is correctly configured.');
+  process.exit(1);
+}
 
-const url = 'mongodb+srv://JoeAlcon00:VBPmelfdcTm2UlG6@cluster0.uoxe6ek.mongodb.net/';
 const client = new MongoClient(url);
 
 async function run() {
     try {
       await client.connect();
-      const db = client.db('blog');
-      const collection = db.collection('Usuarios');
+      const db = client.db(dbName);
+      const collection = db.collection(collectionName);
   
       // Find the first document in the collection
       const first = await collection.findOne();
@@ -26,5 +29,5 @@ async function run() {
       // Close the database connection when finished or an error occurs
       await client.close();
     }
-  }
-  run().catch(console.error);
+}
+run().catch(console.error);
