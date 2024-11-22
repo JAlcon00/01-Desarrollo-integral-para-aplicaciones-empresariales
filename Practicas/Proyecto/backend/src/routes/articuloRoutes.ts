@@ -20,6 +20,6 @@ router.delete("/:id", eliminarArticulo);
 router.get("/buscar", buscarArticulosPorNombre);
 router.get("/categoria/:categoriaId", buscarArticulosPorCategoria);
 
-
+//By Jesus Almanza
 
 export default router;
