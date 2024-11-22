@@ -1,5 +1,5 @@
 name: Build and Push Docker Image
-
+#Prueba 
 on:
   push:
     branches: [ main ]
@@ -20,6 +20,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+        
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: jalcon00/backstore:${{ github.sha }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
